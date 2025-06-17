@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="auth-page">
+        <div class="auth-container">
+            <h2>Sign Up</h2>
+            <form id="signupForm">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+                <label for="role">Select Your Role</label>
+                <select id="role" name="role" class="auth-role-select" required>
+                    <option value="donor">Donor</option>
+                    <option value="receiver">Receiver</option>
+                    <option value="volunteer">Volunteer</option>
+                </select>
+
+                <!-- Extra Fields for Receivers -->
+                <div id="receiverFields" class="receiver-fields">
+                    <label for="position">Position</label>
+                    <input type="text" id="position" name="position">
+
+                    <label for="idProof">ID Proof</label>
+                    <input type="image" id="idProof" name="idProof">
+                </div>
+
+                <button type="submit" class="auth-btn">Sign Up</button>
+            </form>
+
+            <p>Already have an account? <a href="login.html">Login</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("role").addEventListener("change", function () {
+            const receiverFields = document.getElementById("receiverFields");
+            if (this.value === "receiver") {
+                receiverFields.classList.add("show-receiver-fields");
+            } else {
+                receiverFields.classList.remove("show-receiver-fields");
+            }
+        });
+    </script>
+
+</body>
+</html>
